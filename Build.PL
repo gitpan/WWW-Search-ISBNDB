@@ -8,12 +8,22 @@ my $builder = Module::Build->new(
     dist_author         => 'Nick Gerakines <nick@socklabs.com>',
     dist_version_from   => 'lib/WWW/Search/ISBNDB.pm',
     requires => {
-        'Carp' => '1.03',
-        'LWP::UserAgent' => '2.033',
-        'Test::More' => '0.62',
-        'WWW::Search' => '2.539',
-        'XML::Simple' => '2.14',
+        'Carp' => 0,
+        'LWP::UserAgent' => 0,
+        'WWW::Search' => 0,
+        'XML::Simple' => 0,
     },
+    build_requires => {
+        'Test::More' => 0,
+        'Test::Deep' => 0,
+        'Test::Exception' => 0,
+        'File::Temp' => 0,
+        'Cwd' => 0,
+        'Test::Group' => 0,
+    },
+	get_options => {
+		'key' => { type  => '=s' },
+	},
     add_to_cleanup      => [ 'WWW-Search-ISBNDB-*' ],
 );
 
